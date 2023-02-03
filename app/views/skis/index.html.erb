@@ -1,0 +1,10 @@
+<h1>Skis Available<h1>
+
+<% @skis.each do |ski| %>
+
+  <h2><%= ski.year %> <%= ski.manufacturer %></h2>
+  <p><%= ski.model %> <%= ski.fleet %></p>
+  <p>Length (cm): <%= ski.length %>
+  <p>Width (cm): <%= ski.width %>
+  <p>Needs Tuned?: <%= ski.needs_tuned %>
+<% end %>

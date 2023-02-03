@@ -1,0 +1,3 @@
+class Ski < ApplicationRecord
+
+end
