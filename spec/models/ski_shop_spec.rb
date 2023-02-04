@@ -1,7 +1,5 @@
 require "rails_helper"
 
-RSpec.describe SkiShop, type: :model do
+RSpec.describe SkiShop do
   it {should have_many :skis}
-      
-   end
 end
