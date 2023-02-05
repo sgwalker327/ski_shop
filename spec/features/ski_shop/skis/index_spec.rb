@@ -21,7 +21,6 @@ RSpec.describe 'The Ski Shop Skis page', type: :feature do
         expect(page).to have_content("Width (mm): #{ski.width}")
         expect(page).to have_content("Needs Tuned?: #{ski.needs_tuned}")
         expect(page).to have_content("Available at Ski Shop: #{ski.ski_shop_id}")
-        # expect(page).to have_content(ase.name)
         
       end
     end
