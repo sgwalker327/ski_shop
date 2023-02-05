@@ -18,7 +18,7 @@ RSpec.describe 'The skis index page', type: :feature do
         expect(page).to have_content(ski.model)
         expect(page).to have_content(ski.year)
         expect(page).to have_content("Length (cm): #{ski.length}")
-        expect(page).to have_content("Width (cm): #{ski.width}")
+        expect(page).to have_content("Width (mm): #{ski.width}")
         expect(page).to have_content("Needs Tuned?: #{ski.needs_tuned}")
       end
     end

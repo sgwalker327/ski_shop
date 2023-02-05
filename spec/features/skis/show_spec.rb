@@ -19,7 +19,7 @@ describe "As a visitor" do
       expect(page).to have_content(@ski.model)
       expect(page).to have_content(@ski.fleet)
       expect(page).to have_content("Length (cm): #{@ski.length}")
-      expect(page).to have_content("Width (cm): #{@ski.width}")
+      expect(page).to have_content("Width (mm): #{@ski.width}")
       expect(page).to have_content("Needs Tuned?: #{@ski.needs_tuned}")
       expect(page).to have_content("Available at Ski Shop: #{@ski.ski_shop_id}")
     end
