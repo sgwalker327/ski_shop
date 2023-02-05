@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'The skis page' do
+RSpec.describe 'The skis index page', type: :feature do
   it "shows all of the skis and their attributes" do
     ski_shop = SkiShop.create!(name: "American Ski Exchange", location_quantity: 1, rents_clothes: true)
     ski = ski_shop.skis.create!(fleet: "demo", manufacturer: "Rossignol", model: "BlackOps", year: 2022, length: 192, width: 98, needs_tuned: false)
