@@ -26,10 +26,23 @@ RSpec.describe "the ski_shop show page", type: :feature do
     describe "When I visit a parent's show page" do
       it 'I see a count of the number of children associated with this parent' do
         visit "/ski_shop/#{@ski_shop.id}"
-        # require 'pry'; binding.pry
+        
         expect(page).to have_content("Ski Count: #{@ski_shop.skis.count}")
-        # expect(@ski_shop.skis.count).to eq(2)
+        expect(@ski_shop.skis.count).to eq(2)
+      end
+    end
+
+    describe "When I visit any page on the site" do
+      it 'Then I see a link at the top of the page that takes me to the Child Index' do
+        visit "/ski_shop/#{@ski_shop.id}"
+
+        expect(page).to have_link('Skis', href: skis_path)
+        click_on 'Skis'
+        # save_and_open_page
+        expect(page).to have_current_path('/skis')
+
       end
     end
   end
 end
+
