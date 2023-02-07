@@ -1,5 +1,5 @@
 <h1>Ski Shops</h1>
 
 <% @ski_shops.each do |ski_shop| %>
-<h2><%= ski_shop.name %></h2>
+<h2><%= ski_shop.name %> <%= ski_shop.created_at %></h2>
 <% end %>

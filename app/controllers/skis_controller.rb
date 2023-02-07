@@ -3,4 +3,8 @@ class SkisController < ApplicationController
     @skis = Ski.all
   end
   
+  def show
+    @ski = Ski.find(params[:id])
+  end
+
 end

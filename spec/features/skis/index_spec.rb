@@ -18,8 +18,20 @@ RSpec.describe 'The skis index page', type: :feature do
         expect(page).to have_content(ski.model)
         expect(page).to have_content(ski.year)
         expect(page).to have_content("Length (cm): #{ski.length}")
-        expect(page).to have_content("Width (cm): #{ski.width}")
+        expect(page).to have_content("Width (mm): #{ski.width}")
         expect(page).to have_content("Needs Tuned?: #{ski.needs_tuned}")
+      end
+    end
+
+    describe "When I visit any page on the site" do
+      it 'Then I see a link at the top of the page that takes me to the Child Index' do
+        visit "/skis"
+
+        expect(page).to have_link('Skis', href: skis_path)
+        click_on 'Skis'
+        # save_and_open_page
+        expect(page).to have_current_path('/skis')
+
       end
     end
   end
