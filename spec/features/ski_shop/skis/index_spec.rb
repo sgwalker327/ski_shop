@@ -10,8 +10,8 @@ RSpec.describe 'The Ski Shop Skis page', type: :feature do
       it "Then I see each Child that is associated with that Parent with each Child's attributes" do
         ase = SkiShop.create!(name: "American Ski Exchange", location_quantity: 1, rents_clothes: true)
         ski = ase.skis.create!(fleet: "demo", manufacturer: "Armada", model: "ARV 106", year: 2022, length: 172, width: 106, needs_tuned: true)
-        visit "/ski_shop/#{ase.id}/skis"
-
+        visit "/ski_shops/#{ase.id}/skis"
+        
         expect(page).to have_content(ase.name)
         expect(page).to have_content(ski.fleet)
         expect(page).to have_content(ski.manufacturer)
@@ -22,6 +22,20 @@ RSpec.describe 'The Ski Shop Skis page', type: :feature do
         expect(page).to have_content("Needs Tuned?: #{ski.needs_tuned}")
         expect(page).to have_content("Available at Ski Shop: #{ski.ski_shop_id}")
         
+      end
+    end
+
+    describe "When I visit any page on the site" do
+      it 'Then I see a link at the top of the page that takes me to the Parent Index' do
+        ase = SkiShop.create!(name: "American Ski Exchange", location_quantity: 1, rents_clothes: true)
+        ski = ase.skis.create!(fleet: "demo", manufacturer: "Armada", model: "ARV 106", year: 2022, length: 172, width: 106, needs_tuned: true)
+        visit "/ski_shops/#{ase.id}/skis"
+
+        expect(page).to have_link('Ski Shops', href: ski_shops_path)
+        click_on 'Ski Shops'
+        
+        expect(page).to have_current_path('/ski_shops')
+
       end
     end
   end

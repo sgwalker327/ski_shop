@@ -5,6 +5,6 @@ class SkiShopController < ApplicationController
 
   def show
     @ski_shop = SkiShop.find(params[:id])
-    # require 'pry'; binding.pry
+    @ski_count = @ski_shop.ski_count
   end
 end

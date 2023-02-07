@@ -12,7 +12,7 @@ RSpec.describe 'the ski_shop index page', type: :feature do
   describe 'As a visitor' do
     describe "When I visit '/parents'" do
       it 'Then I see the name of each parent record in the system' do
-        visit '/ski_shop'
+        visit '/ski_shops'
 
         expect(page).to have_content(@ski_shop.name)
       end
@@ -23,16 +23,28 @@ RSpec.describe 'the ski_shop index page', type: :feature do
     # And next to each of the records I see when it was created
     describe 'When I visit the parent index' do
       it 'I see that records are ordered by most recently created first' do
-        visit '/ski_shop'
+        visit '/ski_shops'
         
         expect(@christy.name).to appear_before(@ski_shop.name)
       end
 
       it 'And next to each of the records I see when it was created' do
-        visit '/ski_shop'
+        visit '/ski_shops'
 
         expect(page).to have_content("#{@christy.name} #{@christy.created_at}")
         expect(page).to have_content("#{@ski_shop.name} #{@ski_shop.created_at}")
+      end
+    end
+
+    describe "When I visit any page on the site" do
+      it 'Then I see a link at the top of the page that takes me to the Parent Index' do
+        visit "/ski_shops"
+
+        expect(page).to have_link('Ski Shops', href: ski_shops_path)
+        click_on 'Ski Shops'
+        # save_and_open_page
+        expect(page).to have_current_path('/ski_shops')
+
       end
     end
   end
