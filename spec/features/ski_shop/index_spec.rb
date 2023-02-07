@@ -47,6 +47,17 @@ RSpec.describe 'the ski_shop index page', type: :feature do
 
       end
     end
+
+    describe "When I visit the Parent Index page" do
+      it 'Then I see a link to create a new Parent record, "New Parent"' do
+      visit '/ski_shops'
+
+      expect(page).to have_link('New Ski Shop', href: '/ski_shops/new')
+
+      click_on 'New Ski Shop'
+
+      expect(page).to have_current_path('/ski_shops/new')
+      end
+    end
   end
-  
 end
