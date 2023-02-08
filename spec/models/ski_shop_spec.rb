@@ -9,7 +9,7 @@ RSpec.describe SkiShop do
     it 'order records from most recently created to least' do
       ski_shop = SkiShop.create!(name: "American Ski Exchange", location_quantity: 1, rents_clothes: true)
       christy = SkiShop.create!(name: "Christy Sports", location_quantity: 68, rents_clothes: false)
-      # require 'pry'; binding.pry
+      
       expect(SkiShop.shop_order).to eq([christy, ski_shop])
     end
   end

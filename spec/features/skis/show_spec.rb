@@ -5,10 +5,7 @@ RSpec.describe "the ski show page", type: :feature do
     ski_shop = SkiShop.create!(name: "American Ski Exchange", location_quantity: 1, rents_clothes: true)
     @ski = ski_shop.skis.create!(fleet: "demo", manufacturer: "Rossignol", model: "BlackOps", year: 2022, length: 192, width: 98, needs_tuned: true)
   end
-  # As a visitor
-  # When I visit '/child_table_name/:id'
-  # Then I see the child with that id including the child's attributes
-  # (data from each column that is on the child table)
+  
 describe "As a visitor" do
   describe "When I visit '/child_table_name/:id'" do
     it "Then I see the child with that id including the child's attributes" do

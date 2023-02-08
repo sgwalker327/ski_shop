@@ -2,11 +2,11 @@
 
 <%= form_with url: "/ski_shops/#{@ski_shop.id}", method: :patch, local: true do |form| %>
 <%= form.label :name, "Name:" %>
-<%= form.text_field :name %>
+<%= form.text_field :name, value: @ski_shop.name %>
 <%= form.label :location_quantity, "Location Quantity:" %>
-<%= form.text_field :location_quantity %>
+<%= form.text_field :location_quantity, value: @ski_shop.location_quantity %>
 <%= form.label :rents_clothes, "Rents Clothes?:" %>
-<%= form.text_field :rents_clothes %>
+<%= form.text_field :rents_clothes, value: @ski_shop.rents_clothes %>
 
 <%= form.submit "Submit"%>
 <% end %>

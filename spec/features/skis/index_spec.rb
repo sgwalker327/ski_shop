@@ -1,10 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'The skis index page', type: :feature do
-  # As a visitor
-  # When I visit '/child_table_name'
-  # Then I see each Child in the system including the Child's attributes
-  # (data from each column that is on the child table)
+ 
   describe "As a visitor" do
     describe "When I visit '/child_table_name'" do
       it "Then I see each Child in the system including the Child's attributes" do
@@ -29,7 +26,7 @@ RSpec.describe 'The skis index page', type: :feature do
 
         expect(page).to have_link('Skis', href: skis_path)
         click_on 'Skis'
-        # save_and_open_page
+        
         expect(page).to have_current_path('/skis')
 
       end
