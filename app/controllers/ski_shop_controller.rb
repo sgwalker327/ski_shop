@@ -12,10 +12,23 @@ class SkiShopController < ApplicationController
   end
 
   def create
-    SkiShop.create(name: params[:name],
-                    location_quantity: params[:location_quantity],
-                      rents_clothes: params[:rents_clothes])
+    SkiShop.create(ski_shop_params)
     redirect_to '/ski_shops'
   end
 
+  def edit
+    @ski_shop = SkiShop.find(params[:id])
+  end
+
+  def update
+    # require 'pry'; binding.pry
+    @ski_shop = SkiShop.find(params[:id])
+    @ski_shop.update(ski_shop_params)
+    redirect_to "/ski_shops/#{@ski_shop.id}"
+  end
+
+  private
+  def ski_shop_params
+    params.permit(:name, :location_quantity, :rents_clothes)
+  end
 end

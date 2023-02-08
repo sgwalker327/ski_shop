@@ -1,0 +1,12 @@
+<h1>Edit Ski Shop Form</h1>
+
+<%= form_with url: "/ski_shops/#{@ski_shop.id}", method: :patch, local: true do |form| %>
+<%= form.label :name, "Name:" %>
+<%= form.text_field :name %>
+<%= form.label :location_quantity, "Location Quantity:" %>
+<%= form.text_field :location_quantity %>
+<%= form.label :rents_clothes, "Rents Clothes?:" %>
+<%= form.text_field :rents_clothes %>
+
+<%= form.submit "Submit"%>
+<% end %>

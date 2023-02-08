@@ -2,4 +2,5 @@
 <p>Number of Locations: <%= @ski_shop.location_quantity %></p>
 <p>Rents Clothes?: <%= @ski_shop.rents_clothes %></p>
 <p>Ski Count: <%= @ski_count %></p>
-<%= link_to "Ski Shop Skis", "/ski_shops/#{@ski_shop.id}/skis" %>
+<p><%= link_to "Ski Shop Skis", "/ski_shops/#{@ski_shop.id}/skis" %></p>
+<p><%= link_to "Update Ski Shop", "/ski_shops/#{@ski_shop.id}/edit", method: :get %></p>
