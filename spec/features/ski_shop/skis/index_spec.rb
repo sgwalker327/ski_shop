@@ -32,7 +32,21 @@ RSpec.describe 'The Ski Shop Skis page', type: :feature do
         click_on 'Ski Shops'
         
         expect(page).to have_current_path('/ski_shops')
+      end
+    end
 
+    describe "As a visitor" do
+      describe 'When I visit a Parent Children Index page' do
+        it 'Then I see a link to add a new adoptable child for that parent "Create Ski"' do
+          ase = SkiShop.create!(name: "American Ski Exchange", location_quantity: 1, rents_clothes: true)
+          visit "/ski_shops/#{ase.id}/skis"
+
+          expect(page).to have_link('Create Ski', href: "/ski_shops/#{ase.id}/skis/new")
+
+          click_on 'Create Ski'
+
+          expect(page).to have_current_path("/ski_shops/#{ase.id}/skis/new")
+        end
       end
     end
   end
