@@ -12,7 +12,7 @@ class SkiShopController < ApplicationController
   end
 
   def create
-    SkiShop.create(ski_shop_params)
+    SkiShop.create!(ski_shop_params)
     redirect_to '/ski_shops'
   end
 
@@ -21,7 +21,6 @@ class SkiShopController < ApplicationController
   end
 
   def update
-    require 'pry'; binding.pry
     @ski_shop = SkiShop.find(params[:id])
     @ski_shop.update(ski_shop_params)
     redirect_to "/ski_shops/#{@ski_shop.id}"

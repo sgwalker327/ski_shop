@@ -1,0 +1,21 @@
+<h1><%= "Create A New Ski for #{@ski_shop.name}" %></h1>
+
+<%= form_with url: "/ski_shops/#{@ski_shop.id}/skis", method: :post, local: true do |form| %>
+<%= form.label :year, "Year:" %>
+<%= form.text_field :year %>
+<%= form.label :manufacturer, "Manufacturer:" %>
+<%= form.text_field :manufacturer %>
+<%= form.label :model, "Model:" %>
+<%= form.text_field :model %>
+<%= form.label :fleet, "Fleet:" %>
+<%= form.text_field :fleet %>
+<%= form.label :length, "Ski Length:" %>
+<%= form.text_field :length %>
+<%= form.label :width, "Ski Width:" %>
+<%= form.text_field :width %>
+<%= form.label :needs_tuned, "Ski Needs Tuned?:" %>
+<%= form.text_field :needs_tuned %>
+<%= form.hidden_field :ski_shop_id, value: @ski_shop.id %>
+
+<%= form.submit "Create Ski"%>
+<% end %>

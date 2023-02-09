@@ -1,7 +1,6 @@
 <h1><%= @ski_shop.name %></h1>
-
+<%= link_to "Create Ski", "/ski_shops/#{@ski_shop.id}/skis/new" %>
 <% @skis.each do |ski| %>
-
   <h2><%= ski.year %> <%= ski.manufacturer %></h2>
   <p><%= ski.model %> <%= ski.fleet %></p>
   <p>Length (cm): <%= ski.length %></p>
